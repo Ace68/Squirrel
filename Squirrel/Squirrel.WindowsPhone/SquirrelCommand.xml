@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<VoiceCommands xmlns="http://schemas.microsoft.com/voicecommands/1.1">
+  <CommandSet xml:lang="it-IT">
+    <CommandPrefix>Sara</CommandPrefix>
+    <Example> Attiva la Elma </Example>
+
+    <Command Name="Alza la Elma">
+      <Example> Alza la Elma </Example>
+      <ListenFor> Alza la Elma </ListenFor>
+      <Feedback> Sto alzando la Elma </Feedback>
+      <Navigate />
+    </Command>
+
+    <Command Name="Ferma la Elma">
+      <Example> Ferma la Elma </Example>
+      <ListenFor> Ferma la Elma </ListenFor>
+      <Feedback> OK Fermo la Elma </Feedback>
+      <Navigate />
+    </Command>
+
+    <Command Name="Abbassa la Elma">
+      <Example> Abbassa la Elma </Example>
+      <ListenFor> Abbassa la Elma </ListenFor>
+      <Feedback> Sto abbassando la Elma </Feedback>
+      <Navigate />
+    </Command>
+    
+    <PhraseTopic Label="dateTopic" Scenario="Form Filling"> 
+        <Subject> Date/Time </Subject> 
+        <Subject> MyCustomSubject </Subject> 
+    </PhraseTopic>
+	
+  </CommandSet>
+</VoiceCommands>

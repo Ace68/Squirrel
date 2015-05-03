@@ -1,0 +1,35 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Color x:Key="ItemSelectionColor">#FFE2742F</Color>
+
+    <SolidColorBrush x:Key="SquirrelAccentBrush"
+                             Color="#B8CB11" />
+    <SolidColorBrush x:Key="SquirrelAccentTextBrush"
+                             Color="#B8CB11" />
+
+    <!-- Application Background -->
+    <SolidColorBrush x:Key="ApplicationPageBackgroundThemeBrush"
+                     Color="#FFE2742F" />
+    <SolidColorBrush x:Key="GreenPageBackgroundThemeBrush"
+                     Color="#003300" />
+    <SolidColorBrush x:Key="ModalBackgroundThemeBrush"
+                     Color="Navy" />
+    <SolidColorBrush x:Key="SettingsFlyoutBackgroundThemeBrush"
+                     Color="White" />
+
+    <Style x:Key="LayoutRootStyle"
+           TargetType="Panel">
+        <Setter Property="Background"
+                Value="{StaticResource ModalBackgroundThemeBrush}" />
+        <Setter Property="ChildrenTransitions">
+            <Setter.Value>
+                <TransitionCollection>
+                    <EntranceThemeTransition />
+                </TransitionCollection>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

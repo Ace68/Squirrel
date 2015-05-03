@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>898b8ca6-1d60-425e-920d-1f773f1d1c19</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Squirrel</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="$(MSBuildThisFileDirectory)App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ConfigurationViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ElmaViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MainViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\SquirrelViewModelBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ViewModelLocator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)Assets\ElmaDown.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\ElmaDownPhone.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\ElmaStop.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\ElmaStopPhone.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\ElmaUp.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\ElmaUpPhone.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\logo.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Logo.scale-100.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Logo.scale-140.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Logo.scale-180.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Logo.scale-240.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Logo.scale-80.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\SmallLogo.scale-100.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\SmallLogo.scale-140.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\SmallLogo.scale-240.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\splash-Windows - 1116x540.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\splash-Windows - 1152x1920y.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\splash-Windows - 120x120.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\splash-Windows - 150x150.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\splash-Windows - 170x170.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\splash-Windows - 210x210.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\splash-Windows - 270x270.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\splash-Windows - 310x150.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\splash-Windows - 360x360.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\splash-Windows - 434x210.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\splash-Windows - 480x800.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\splash-Windows - 620x300.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\splash-Windows - 672x1120.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\splash-Windows - 71x71.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\splash-Windows - 744x360.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\splash-Windows - 868x420.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\splash-Windows - 99x99.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\SplashScreen.scale-100.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\SplashScreen.scale-140.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\SplashScreen.scale-180.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\SplashScreen.scale-240.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Square71x71Logo.scale-100.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Square71x71Logo.scale-140.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Square71x71Logo.scale-240.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Squirrel-106x106.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Squirrel-120x120.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Squirrel-126x126.scale-100.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Squirrel-126x126.scale-140.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Squirrel-126x126.scale-180.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Squirrel-126x126.scale-80.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Squirrel-44x44.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Squirrel-50x50.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Squirrel-56x56.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Squirrel-62x62.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Squirrel-70x70.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Squirrel-98x98.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Squirrel-Camera.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Squirrel-Configurazione.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Squirrel-Elma.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Squirrel-Studio.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\squirrel.ico" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\StoreLogo.scale-100.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\StoreLogo.scale-140.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\StoreLogo.scale-240.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\suite_service_blue.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\suite_service_green.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\suite_service_red.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\WideLogo.scale-100.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\WideLogo.scale-140.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\WideLogo.scale-240.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="$(MSBuildThisFileDirectory)Resources\SquirrelColor.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Resources\SquirrelNumbers.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Resources\SquirrelStrings.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Themes\BasicStyles.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

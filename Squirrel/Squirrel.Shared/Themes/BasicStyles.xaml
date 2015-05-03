@@ -1,0 +1,328 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Color x:Key="ItemSelectionColor">#FFE2742F</Color>
+
+    <!-- Default theme resources -->
+    <SolidColorBrush x:Key="SquirrelAccentBrush"
+                             Color="#B8CB11" />
+    <SolidColorBrush x:Key="SquirrelAccentTextBrush"
+                             Color="#B8CB11" />
+    <SolidColorBrush x:Key="SquirrelButtonForegroundBrush"
+                             Color="Black" />
+    <SolidColorBrush x:Key="SquirrelItemForegroundBrush"
+                             Color="White" />
+    <SolidColorBrush x:Key="SquirrelItemForegroundLighterBrush"
+                             Color="White" />
+    <SolidColorBrush x:Key="SquirrelItemForegroundLightestBrush"
+                             Color="White" />
+    <SolidColorBrush x:Key="SquirrelHighlightButtonForegroundBrush"
+                             Color="Black" />
+    <SolidColorBrush x:Key="SquirrelItemBackgroundBrush"
+                             Color="#FF353C41" />
+    <SolidColorBrush x:Key="SquirrelItemBorderBrush" Color="Transparent" />
+    <SolidColorBrush x:Key="SquirrelItemDiscountLine" Color="Gray" />
+    <SolidColorBrush x:Key="SquirrelAccentText2Brush" Color="{StaticResource ItemSelectionColor}" />
+    <SolidColorBrush x:Key="SquirrelRatingBrush" Color="Yellow" />
+    <SolidColorBrush x:Key="SquirrelFlyoutTextBrush" Color="Black" />
+    <SolidColorBrush x:Key="SquirrelTopBarButtonForegroundBrush" Color="Black" />
+    <SolidColorBrush x:Key="SquirrelTopBarButtonBackgroundBrush" Color="#FFAAB1B5" />
+
+    <!-- Application Background -->
+    <SolidColorBrush x:Key="ApplicationPageBackgroundThemeBrush"
+                     Color="#FF2C3339" />
+    <SolidColorBrush x:Key="EliopigPageBackgroundThemeBrush"
+                     Color="#003300" />
+    <SolidColorBrush x:Key="ModalBackgroundThemeBrush"
+                     Color="#FF2C3339" />
+    <SolidColorBrush x:Key="SettingsFlyoutBackgroundThemeBrush"
+                     Color="White" />
+
+    <x:String x:Key="BackButtonGlyph">&#xE071;</x:String>
+    <x:String x:Key="BackButtonMinimalGlyph">&#xE0BA;</x:String>
+
+    <!-- ListView Selection Color -->
+    <SolidColorBrush x:Key="ListViewItemSelectedBackgroundThemeBrush"
+                             Color="{StaticResource ItemSelectionColor}" />
+    <SolidColorBrush x:Key="ListViewItemSelectedPointerOverBackgroundThemeBrush"
+                             Color="{StaticResource ItemSelectionColor}" />
+    <SolidColorBrush x:Key="ListViewItemSelectedPointerOverBorderThemeBrush"
+                             Color="{StaticResource ItemSelectionColor}" />
+    <SolidColorBrush x:Key="SquirrelItemSelectionColor" 
+                             Color="{StaticResource ItemSelectionColor}" />
+
+    <Style x:Key="LayoutRootStyle"
+           TargetType="Panel">
+        <Setter Property="Background"
+                Value="{StaticResource ApplicationPageBackgroundThemeBrush}" />
+        <Setter Property="ChildrenTransitions">
+            <Setter.Value>
+                <TransitionCollection>
+                    <EntranceThemeTransition />
+                </TransitionCollection>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="SquirrelRootStyle"
+           TargetType="Panel">
+        <Setter Property="Background"
+                Value="{StaticResource SettingsFlyoutBackgroundThemeBrush}" />
+        <Setter Property="ChildrenTransitions">
+            <Setter.Value>
+                <TransitionCollection>
+                    <EntranceThemeTransition />
+                </TransitionCollection>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--
+        BackButtonStyle is used to style a Button for use in the title area of a page.  Margins appropriate for
+        the conventional page layout are included as part of the style.
+    -->
+    <Style x:Key="BackButtonStyle" TargetType="Button">
+        <Setter Property="MinWidth" Value="0"/>
+        <Setter Property="Width" Value="48"/>
+        <Setter Property="Height" Value="48"/>
+        <Setter Property="Margin" Value="36,0,36,36"/>
+        <Setter Property="VerticalAlignment" Value="Bottom"/>
+        <Setter Property="FontFamily" Value="Segoe UI Symbol"/>
+        <Setter Property="FontWeight" Value="Normal"/>
+        <Setter Property="FontSize" Value="56"/>
+        <Setter Property="AutomationProperties.AutomationId" Value="BackButton"/>
+        <Setter Property="AutomationProperties.Name" Value="Back"/>
+        <Setter Property="AutomationProperties.ItemType" Value="Navigation Button"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid x:Name="RootGrid">
+                        <Grid Margin="-1,-16,0,0">
+                            <TextBlock x:Name="BackgroundGlyph" Text="&#xE0A8;" Foreground="{StaticResource BackButtonBackgroundThemeBrush}"/>
+                            <TextBlock x:Name="NormalGlyph" Text="{StaticResource BackButtonGlyph}" Foreground="{StaticResource BackButtonForegroundThemeBrush}"/>
+                            <TextBlock x:Name="ArrowGlyph" Text="&#xE0A6;" Foreground="{StaticResource BackButtonPressedForegroundThemeBrush}" Opacity="0"/>
+                        </Grid>
+                        <Rectangle
+                            x:Name="FocusVisualWhite"
+                            IsHitTestVisible="False"
+                            Stroke="{StaticResource FocusVisualWhiteStrokeThemeBrush}"
+                            StrokeEndLineCap="Square"
+                            StrokeDashArray="1,1"
+                            Opacity="0"
+                            StrokeDashOffset="1.5"/>
+                        <Rectangle
+                            x:Name="FocusVisualBlack"
+                            IsHitTestVisible="False"
+                            Stroke="{StaticResource FocusVisualBlackStrokeThemeBrush}"
+                            StrokeEndLineCap="Square"
+                            StrokeDashArray="1,1"
+                            Opacity="0"
+                            StrokeDashOffset="0.5"/>
+
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal" />
+                                <VisualState x:Name="PointerOver">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BackgroundGlyph" Storyboard.TargetProperty="Foreground">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource BackButtonPointerOverBackgroundThemeBrush}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="NormalGlyph" Storyboard.TargetProperty="Foreground">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource BackButtonPointerOverForegroundThemeBrush}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BackgroundGlyph" Storyboard.TargetProperty="Foreground">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource BackButtonForegroundThemeBrush}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="ArrowGlyph"
+                                            Storyboard.TargetProperty="Opacity"
+                                            To="1"
+                                            Duration="0"/>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="NormalGlyph"
+                                            Storyboard.TargetProperty="Opacity"
+                                            To="0"
+                                            Duration="0"/>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RootGrid" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="FocusStates">
+                                <VisualState x:Name="Focused">
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="FocusVisualWhite"
+                                            Storyboard.TargetProperty="Opacity"
+                                            To="1"
+                                            Duration="0"/>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="FocusVisualBlack"
+                                            Storyboard.TargetProperty="Opacity"
+                                            To="1"
+                                            Duration="0"/>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Unfocused" />
+                                <VisualState x:Name="PointerFocused" />
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="GroupHeaderTextStyle"
+           TargetType="TextBlock">
+        <Setter Property="FontFamily"
+                Value="{StaticResource ContentControlThemeFontFamily}" />
+        <Setter Property="TextTrimming"
+                Value="WordEllipsis" />
+        <Setter Property="TextWrapping"
+                Value="NoWrap" />
+        <Setter Property="Typography.StylisticSet20"
+                Value="True" />
+        <Setter Property="Typography.Kerning"
+                Value="True" />
+        <Setter Property="Typography.DiscretionaryLigatures"
+                Value="True" />
+        <Setter Property="Typography.CaseSensitiveForms"
+                Value="True" />
+        <Setter Property="FontSize"
+                Value="26.667" />
+        <Setter Property="LineStackingStrategy"
+                Value="BlockLineHeight" />
+        <Setter Property="FontWeight"
+                Value="Light" />
+        <Setter Property="LineHeight"
+                Value="30" />
+        <Setter Property="RenderTransform">
+            <Setter.Value>
+                <TranslateTransform X="-2"
+                                    Y="6" />
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="ComboBox" x:Key="BaseComboBoxStyle" >
+        <Setter Property="HeaderTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <TextBlock Margin="0"
+                               Padding="0"
+                               Foreground="{StaticResource SquirrelItemForegroundBrush}"
+                               Text="{Binding}" 
+                               Visibility="{Binding Converter={StaticResource TextToHeaderVisibilityConverter}}"/>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="Margin" Value="10,0,0,0" />
+        <Setter Property="Height" Value="60" />
+        <Setter Property="Width" Value="500" />
+    </Style>
+
+    <!-- Password style -->
+    <Style x:Key="FormPasswordStyle"
+           TargetType="PasswordBox">
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Width" Value="500"/>
+        <Setter Property="Margin" Value="10,0,0,0"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Center"></Setter>
+    </Style>
+
+    <!-- CheckBox styles -->
+    <Style x:Key="BasicCheckStyle" TargetType="CheckBox">
+        <Setter Property="Height" Value="40"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="10,0,0,0"/>
+    </Style>
+
+    <!-- TextBlock styles -->
+    <Style x:Key="FormTextStyle"
+           TargetType="TextBox">
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Width" Value="500"/>
+        <Setter Property="Margin" Value="10,0,0,0"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Center"></Setter>
+    </Style>
+
+    <Style x:Key="FormTextBlockStyle"
+           TargetType="TextBlock">
+        <Setter Property="FontSize" Value="14.667"/>
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="0,0,10,0"/>
+    </Style>
+
+    <Style x:Key="FormTextBlockStyleForCommand"
+           TargetType="TextBlock">
+        <Setter Property="FontSize" Value="26"/>
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Foreground" Value="OrangeRed"></Setter>
+        <Setter Property="Margin" Value="0,0,10,0"/>
+    </Style>
+
+    <Style x:Key="FormTextBlockLeftStyle"
+           TargetType="TextBlock">
+        <Setter Property="FontSize" Value="14.667"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="10,0,0,0"/>
+    </Style>
+
+    <Style TargetType="DatePicker" x:Key="BaseDatePicker">
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="Width" Value="300" />
+        <Setter Property="Height" Value="60" />
+        <Setter Property="Margin" Value="10,0,0,0" />
+    </Style>
+
+    <Style TargetType="TimePicker" x:Key="BaseTimePicker">
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="Width" Value="100" />
+        <Setter Property="Height" Value="90" />
+        <Setter Property="Margin" Value="10,0,0,0" />
+        <Setter Property="MinuteIncrement" Value="30" />
+        <Setter Property="ClockIdentifier" Value="24HourClock" />
+    </Style>
+
+    <Style x:Key="ImagePlaceHolderStyle" TargetType="Border">
+        <Setter Property="Background" Value="Gray"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+    </Style>
+
+    <Style x:Key="MoCoContentTextStackPanelStyle" TargetType="StackPanel">
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="Margin" Value="0,8,0,0"/>
+    </Style>
+
+    <Style x:Key="NonWrappingSmallContentTextStyle" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="14.667"/>
+        <Setter Property="FontFamily" Value="Segoe UI"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="TextWrapping" Value="NoWrap"/>
+        <Setter Property="TextTrimming" Value="WordEllipsis"/>
+    </Style>
+
+</ResourceDictionary>
