@@ -43,6 +43,7 @@ namespace Squirrel.ViewModels
             SimpleIoc.Default.Register<ISquirrelServices, SquirrelServices>();
             SimpleIoc.Default.Register<ICommandHandler, CommandHandler>();
             SimpleIoc.Default.Register<ISquirrelConfiguration, SquirrelConfiguration>();
+            SimpleIoc.Default.Register<IAlertMessageService, AlertMessageService>();
 
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<ElmaViewModel>();

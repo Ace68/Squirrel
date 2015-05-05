@@ -49,8 +49,11 @@
     <TargetPlatform Include="Windows, Version=8.1" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstracts\DialogCommand.cs" />
+    <Compile Include="Abstracts\IAlertMessageService.cs" />
     <Compile Include="Abstracts\ISquirrelServices.cs" />
     <Compile Include="Commands\SquirrelCommands.cs" />
+    <Compile Include="Concretes\AlertMessageService.cs" />
     <Compile Include="Concretes\SquirrelServices.cs" />
     <Compile Include="Events\SquirrelCommandRecognizedEventArgs.cs" />
     <Compile Include="Events\SquirrelCommandRejectedEventArgs.cs" />

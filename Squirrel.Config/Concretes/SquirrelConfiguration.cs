@@ -55,10 +55,11 @@ namespace Squirrel.Config.Concretes
             this._squirrelDevices = new List<SquirrelDevice>
             {
                 this.GetSquirrelDeviceFromContainer("LuceCamera"),
-                this.GetSquirrelDeviceFromContainer("LuceSala"),
+                this.GetSquirrelDeviceFromContainer("LuceStudio"),
                 this.GetSquirrelDeviceFromContainer("Radio"),
                 this.GetSquirrelDeviceFromContainer("ElmaUp"),
-                this.GetSquirrelDeviceFromContainer("ElmaDown")
+                this.GetSquirrelDeviceFromContainer("ElmaDown"),
+                this.GetSquirrelDeviceFromContainer("ElmaStop")
             };
 
             return this._squirrelDevices;
@@ -73,23 +74,32 @@ namespace Squirrel.Config.Concretes
 
         public SquirrelDevice GetSquirrelDeviceByName(string deviceName)
         {
-            return this.GetSquirrelDeviceFromContainer(deviceName);
+            return this._squirrelDevices.FirstOrDefault(d => d.DeviceName == deviceName);
         }
 
-        public void SaveSquirrelConfiguration(IList<SquirrelDevice> squirrelDevices)
+        public void SaveSquirrelConfiguration()
         {
-            throw new NotImplementedException();
+            if (this._squirrelDevices == null) return;
+
+            this.ChkAndCreateContainer();
+
+            foreach (var device in this._squirrelDevices)
+            {
+                if (!this._squirrelSetting.Containers[SquirrelContainerName].Values.ContainsKey(device.DeviceName))
+                    this._squirrelSetting.Containers[SquirrelContainerName].Values[device.DeviceName] =
+                        string.Format("{0},{1}", device.DeviceNumber, device.DeviceIstance);
+                else
+                {
+                    this._squirrelSetting.Containers[SquirrelContainerName].Values[device.DeviceName] =
+                        string.Format("{0},{1}", device.DeviceNumber, device.DeviceIstance);
+                }
+            }
         }
 
         #region Helpers
         private void CreateLocalSetting()
         {
-            this._squirrelSetting = ApplicationData.Current.LocalSettings;
-
-            if (!this._squirrelSetting.Containers.ContainsKey(SquirrelContainerName))
-            {
-                this._squirrelSetting.CreateContainer(SquirrelContainerName, ApplicationDataCreateDisposition.Always);
-            }
+            this.ChkAndCreateContainer();
 
             if (!this._squirrelSetting.Containers[SquirrelContainerName].Values.ContainsKey("ZWaveServerAddress"))
                 this._squirrelSetting.Containers[SquirrelContainerName].Values["ZWaveServerAddress"] =
@@ -115,6 +125,16 @@ namespace Squirrel.Config.Concretes
 
             if (!this._squirrelSetting.Containers[SquirrelContainerName].Values.ContainsKey("LuceStudio"))
                 this._squirrelSetting.Containers[SquirrelContainerName].Values["LuceStudio"] = "5,0";
+        }
+
+        private void ChkAndCreateContainer()
+        {
+            this._squirrelSetting = ApplicationData.Current.LocalSettings;
+
+            if (!this._squirrelSetting.Containers.ContainsKey(SquirrelContainerName))
+            {
+                this._squirrelSetting.CreateContainer(SquirrelContainerName, ApplicationDataCreateDisposition.Always);
+            }
         }
 
         private SquirrelDevice GetSquirrelDeviceFromContainer(string deviceName)

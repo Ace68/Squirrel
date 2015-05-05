@@ -1,24 +1,31 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
+using Windows.UI.Popups;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Views;
 
 using Squirrel.Config.Abstracts;
 using Squirrel.Config.Dtos;
+using Squirrel.Services.Abstracts;
 
 namespace Squirrel.ViewModels
 {
     public class ConfigurationViewModel : SquirrelViewModelBase
     {
+        private readonly IAlertMessageService _alertMessageService;
         private readonly INavigationService _navigationService;
         private readonly ISquirrelConfiguration _squirrelConfiguration;
 
         private ObservableCollection<SquirrelDevice> _squirrelDevices;
         private SquirrelDevice _currentSquirrelDevice;
 
-        public ConfigurationViewModel(INavigationService navigationService,
+        public ConfigurationViewModel(IAlertMessageService alertMessageService,
+            INavigationService navigationService,
             ISquirrelConfiguration squirrelConfiguration)
         {
+            this._alertMessageService = alertMessageService;
             this._navigationService = navigationService;
             this._squirrelConfiguration = squirrelConfiguration;
 
@@ -75,8 +82,44 @@ namespace Squirrel.ViewModels
 
         private void OnGoBackCommand()
         {
-            this._navigationService.NavigateTo("MainPage");
+            this.SalvaConfigurazioneRequest();
         }
         #endregion
+
+        private void SalvaConfigurazioneRequest()
+        {
+            Action confirmSaveConfigurationAction = this.ConfermaSalvaConfigurazione;
+            Action cancelSaveConfigurationAction = AnnullaSalvaConfigurazione;
+
+            var commandList = new List<DialogCommand>
+            {
+                new DialogCommand
+                {
+                    Id = 1,
+                    Label = "Conferma",
+                    Invoked = confirmSaveConfigurationAction
+                },
+                new DialogCommand
+                {
+                    Id = 2,
+                    Label = "Annulla",
+                    Invoked = cancelSaveConfigurationAction
+                }
+            };
+
+            this._alertMessageService.ShowAsync("Confermi Salvataggio della Configurazione?", "Squirrel Configuration",
+                commandList);
+        }
+
+        private void ConfermaSalvaConfigurazione()
+        {
+            this._squirrelConfiguration.SaveSquirrelConfiguration();
+            this._navigationService.NavigateTo("MainPage");
+        }
+
+        private void AnnullaSalvaConfigurazione()
+        {
+            this._navigationService.NavigateTo("MainPage");
+        }
     }
 }

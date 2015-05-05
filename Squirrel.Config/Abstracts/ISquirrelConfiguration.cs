@@ -16,6 +16,6 @@ namespace Squirrel.Config.Abstracts
         SquirrelDevice GetSquirrelDeviceByNumber(int deviceNumber);
         SquirrelDevice GetSquirrelDeviceByName(string deviceName);
 
-        void SaveSquirrelConfiguration(IList<SquirrelDevice> squirrelDevices);
+        void SaveSquirrelConfiguration();
     }
 }
