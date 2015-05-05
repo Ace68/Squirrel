@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using Squirrel.Config.Abstracts;
 using Squirrel.Config.Dtos;
 using Squirrel.Protocols;
@@ -32,7 +33,15 @@ namespace Squirrel.Services.Concretes
 
         public void DeviceCommand(string command)
         {
-            this._currentDevice = this._squirrelConfiguration.GetSquirrelDeviceByName(command);
+            var deviceName = command;
+            // TODO: should be better have two parameters deviceName and command ...
+            if (command.Contains("On"))
+                deviceName = command.Replace("On", "");
+
+            if (command.Contains("Off"))
+                deviceName = command.Replace("Off", "");
+
+            this._currentDevice = this._squirrelConfiguration.GetSquirrelDeviceByName(deviceName);
 
             if (this._currentDevice == null)
             {
@@ -54,12 +63,29 @@ namespace Squirrel.Services.Concretes
                     this.OnElmaUpCommand();
                     break;
 
+                case SquirrelCommands.LuceCameraOff:
+                    this.OnLuceCameraOffCommand();
+                    break;
+                
+                case SquirrelCommands.LuceCameraOn:
+                    this.OnLuceCameraOnCommand();
+                    break;
+
+                case SquirrelCommands.RadioOff:
+                    this.OnRadioOffCommand();
+                    break;
+
+                case SquirrelCommands.RadioOn:
+                    this.OnRadioOnCommand();
+                    break;
+
                 default:
                     this.OnUnknownCOmmand();
                     break;
             }
         }
 
+        #region Elma
         private void OnElmaDownCommand()
         {
             this._commandHandler.TurnOn(this._currentDevice.DeviceNumber, this._currentDevice.DeviceIstance);
@@ -84,6 +110,45 @@ namespace Squirrel.Services.Concretes
             var handler = this.SquirrelCommandRecognized;
             if (handler != null) handler(this, new SquirrelCommandRecognizedEventArgs(SquirrelCommands.ElmaUp));
         }
+        #endregion
+
+        #region Camera
+        #region Luce Camera
+        private void OnLuceCameraOffCommand()
+        {
+            this._commandHandler.TurnOff(this._currentDevice.DeviceNumber, this._currentDevice.DeviceIstance);
+
+            var handler = this.SquirrelCommandRecognized;
+            if (handler != null) handler(this, new SquirrelCommandRecognizedEventArgs(SquirrelCommands.LuceCameraOff));
+        }
+
+        private void OnLuceCameraOnCommand()
+        {
+            this._commandHandler.TurnOn(this._currentDevice.DeviceNumber, this._currentDevice.DeviceIstance);
+
+            var handler = this.SquirrelCommandRecognized;
+            if (handler != null) handler(this, new SquirrelCommandRecognizedEventArgs(SquirrelCommands.LuceCameraOn));
+        }
+        #endregion
+
+        #region Radio
+        private void OnRadioOffCommand()
+        {
+            this._commandHandler.TurnOff(this._currentDevice.DeviceNumber, this._currentDevice.DeviceIstance);
+
+            var handler = this.SquirrelCommandRecognized;
+            if (handler != null) handler(this, new SquirrelCommandRecognizedEventArgs(SquirrelCommands.RadioOff));
+        }
+
+        private void OnRadioOnCommand()
+        {
+            this._commandHandler.TurnOn(this._currentDevice.DeviceNumber, this._currentDevice.DeviceIstance);
+
+            var handler = this.SquirrelCommandRecognized;
+            if (handler != null) handler(this, new SquirrelCommandRecognizedEventArgs(SquirrelCommands.RadioOn));
+        }
+        #endregion
+        #endregion
 
         private void OnUnknownCOmmand()
         {
@@ -92,7 +157,7 @@ namespace Squirrel.Services.Concretes
         }
 
         #region Dispose
-        private bool _disposed = false;
+        private bool _disposed;
         public void Dispose()
         {
             Dispose(true);

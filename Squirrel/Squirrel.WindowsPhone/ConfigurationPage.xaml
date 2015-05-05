@@ -4,10 +4,62 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:squirrelControl="using:Squirrel.UserControls"
     mc:Ignorable="d"
     DataContext="{Binding Source={StaticResource Locator}, Path=ConfigurationViewModel}">
 
-    <Grid>
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/SquirrelNumbers.xaml" />
+                <ResourceDictionary Source="Resources/SquirrelStrings.xaml" />
+                <ResourceDictionary Source="Themes/BasicStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
 
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="{StaticResource RowTitleHeight}" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="{StaticResource RowHeight}" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" x:Name="TitleGrid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="{StaticResource ColumnSeparationWidth}" />
+            </Grid.ColumnDefinitions>
+
+            <Button x:Name="BackButton"
+                          Command="{Binding GoBackCommand}"
+                          Style="{StaticResource BackButtonStyle}" />
+            <Image x:Name="AppLogo"
+                   AutomationProperties.Name="AppLogo"
+                   Source="../Assets/logo.jpg"
+                   Height="60"
+                   Margin="0,0,0,0"
+                   Grid.Column="1"
+                   HorizontalAlignment="Center" />
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <squirrelControl:SquirrelConfigMaster/>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0"
+                       Text="{Binding CommandStatus}"
+                       Style="{StaticResource FormTextBlockStyleForCommand}"/>
+            <TextBlock Grid.Column="1"
+                       Text="{StaticResource AppSubName}"
+                       Style="{StaticResource FormTextBlockStyle}"/>
+        </Grid>
     </Grid>
 </Page>

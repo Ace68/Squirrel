@@ -74,6 +74,8 @@ namespace Squirrel.Config.Concretes
 
         public SquirrelDevice GetSquirrelDeviceByName(string deviceName)
         {
+            this.GetSquirrelDevice();
+
             return this._squirrelDevices.FirstOrDefault(d => d.DeviceName == deviceName);
         }
 

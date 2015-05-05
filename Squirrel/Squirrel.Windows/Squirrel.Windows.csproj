@@ -106,6 +106,9 @@
     <Compile Include="ConfigurationPage.xaml.cs">
       <DependentUpon>ConfigurationPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CameraPage.xaml.cs">
+      <DependentUpon>CameraPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ElmaPage.xaml.cs">
       <DependentUpon>ElmaPage.xaml</DependentUpon>
     </Compile>
@@ -131,6 +134,10 @@
     <Page Include="ConfigurationPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CameraPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="ElmaPage.xaml">
       <SubType>Designer</SubType>

@@ -13,8 +13,8 @@ namespace Squirrel.ViewModels
             this._navigationService = navigationService;
 
             this.CameraCommand = new RelayCommand(this.OnCameraCommand, CanNavigateOnCameraTools);
-            this.ElmaCommand = new RelayCommand(this.OnElmaCommand, this.CanNavigateOnElmaTools);
-            this.ConfigurazioneCommand = new RelayCommand(this.OnConfigurazioneCommand, this.CanNavigateOnConfigurazioneTools);
+            this.ElmaCommand = new RelayCommand(this.OnElmaCommand, CanNavigateOnElmaTools);
+            this.ConfigurazioneCommand = new RelayCommand(this.OnConfigurazioneCommand, CanNavigateOnConfigurazioneTools);
         }
 
         #region Command
@@ -31,10 +31,10 @@ namespace Squirrel.ViewModels
 
         private void OnCameraCommand()
         {
-            //this._navigationService.NavigateTo("CameraPage");
+            this._navigationService.NavigateTo("CameraPage");
         }
 
-        private bool CanNavigateOnElmaTools()
+        private static bool CanNavigateOnElmaTools()
         {
             return true;
         }
@@ -44,7 +44,7 @@ namespace Squirrel.ViewModels
             this._navigationService.NavigateTo("ElmaPage");
         }
 
-        private bool CanNavigateOnConfigurazioneTools()
+        private static bool CanNavigateOnConfigurazioneTools()
         {
             return true;
         }

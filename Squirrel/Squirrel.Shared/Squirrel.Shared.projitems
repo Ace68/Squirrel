@@ -15,6 +15,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\CameraViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ConfigurationViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ElmaViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MainViewModel.cs" />
@@ -34,6 +35,10 @@
     <Content Include="$(MSBuildThisFileDirectory)Assets\Logo.scale-180.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Logo.scale-240.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Logo.scale-80.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\LuceOff.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\LuceOn.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\RadioOff.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\RadioOn.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\SmallLogo.scale-100.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\SmallLogo.scale-140.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\SmallLogo.scale-240.png" />

@@ -1,0 +1,105 @@
+﻿<UserControl
+    x:Class="Squirrel.UserControls.SquirrelConfigMaster"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Squirrel.UserControls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+
+    <UserControl.Resources>
+        <DataTemplate x:Key="DetailsTemplate">
+            <local:SquirrelConfigClient/>
+        </DataTemplate>
+    </UserControl.Resources>
+
+    <Grid>
+        <StackPanel Orientation="Horizontal" Height="Auto">
+            <ListView
+                Width="Auto" Height="Auto"
+                ItemTemplate="{StaticResource DetailsTemplate}"
+                ItemsSource="{Binding SquirrelDevices}"
+                SelectedItem="{Binding CurrentSquirrelDevice, Mode=TwoWay}"
+                ShowsScrollingPlaceholders="False"/>
+
+            <ScrollViewer
+                Margin="0,0,0,0"
+                Width="Auto"
+                VerticalScrollBarVisibility="Auto">
+                <StackPanel DataContext="{Binding CurrentSquirrelDevice, Mode=TwoWay}"
+                    HorizontalAlignment="Left" 
+                    Orientation="Vertical" 
+                    Margin="10,0,0,0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="55"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="55"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="55"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="55"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="55"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Row="1" Grid.Column="1"
+                                   Text="Device Name"
+                                   FontSize="14.667"
+                                   HorizontalAlignment="Right"
+                                   VerticalAlignment="Center"
+                                   Margin="0,0,10,0"/>
+                        <TextBox Grid.Row="1" Grid.Column="3"
+                                 Height="30"
+                                 Width="300"
+                                 Margin="10,0,0,0"
+                                 HorizontalAlignment="Left"
+                                 VerticalAlignment="Center"
+                                 PlaceholderText="Nome Identificativo del Device"
+                                 Text="{Binding DeviceName, Mode=TwoWay}" />
+
+                        <TextBlock Grid.Row="3" Grid.Column="1"
+                                   Text="Device Number"
+                                   FontSize="14.667"
+                                   HorizontalAlignment="Right"
+                                   VerticalAlignment="Center"
+                                   Margin="0,0,10,0"/>
+                        <TextBox Grid.Row="3" Grid.Column="3"
+                                 Height="30"
+                                 Width="50"
+                                 Margin="10,0,0,0"
+                                 HorizontalAlignment="Left"
+                                 VerticalAlignment="Center"
+                                 PlaceholderText="Id Identificativo del Device"
+                                 Text="{Binding DeviceNumber, Mode=TwoWay}" />
+
+                        <TextBlock Grid.Row="5" Grid.Column="1"
+                                   Text="Device Istance"
+                                   FontSize="14.667"
+                                   HorizontalAlignment="Right"
+                                   VerticalAlignment="Center"
+                                   Margin="0,0,10,0"/>
+                        <TextBox Grid.Row="5" Grid.Column="3"
+                                 Height="30"
+                                 Width="50"
+                                 Margin="10,0,0,0"
+                                 HorizontalAlignment="Left"
+                                 VerticalAlignment="Center"
+                                 PlaceholderText="Istanza del Device"
+                                 Text="{Binding DeviceIstance, Mode=TwoWay}" />
+                    </Grid>
+                </StackPanel>
+            </ScrollViewer>
+        </StackPanel>
+
+    </Grid>
+</UserControl>
