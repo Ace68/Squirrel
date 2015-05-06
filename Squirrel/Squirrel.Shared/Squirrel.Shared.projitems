@@ -81,6 +81,7 @@
     <Content Include="$(MSBuildThisFileDirectory)Assets\Squirrel-Camera.jpg" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Squirrel-Configurazione.jpg" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Squirrel-Elma.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Squirrel-Ingresso.jpg" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Squirrel-Studio.jpg" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\squirrel.ico" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\StoreLogo.scale-100.png" />

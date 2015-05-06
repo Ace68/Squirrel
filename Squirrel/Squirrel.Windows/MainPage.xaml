@@ -47,6 +47,11 @@
                     VerticalAlignment="Center">
             <StackPanel Orientation="Horizontal">
                 <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="{StaticResource RowSeparationHeight}" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="{StaticResource ColumnSeparationWidth}" />
                         <ColumnDefinition Width="Auto" />
@@ -56,8 +61,19 @@
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
 
-                    <Button Grid.Column="1"
-                            Command="{Binding CameraCommand}">
+                    <Button Grid.Column="1" Grid.Row="0"
+                            Command="{Binding IngressoCommand}"
+                            Visibility="{Binding MostraIngresso}">
+                        <Button.Template>
+                            <ControlTemplate>
+                                <Image Source="ms-appx:///Assets/Squirrel-Ingresso.jpg"/>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+
+                    <Button Grid.Column="1" Grid.Row="2"
+                            Command="{Binding CameraCommand}"
+                            Visibility="{Binding MostraCamera}">
                         <Button.Template>
                             <ControlTemplate>
                                 <Image Source="ms-appx:///Assets/Squirrel-Camera.jpg"/>
@@ -65,8 +81,9 @@
                         </Button.Template>
                     </Button>
 
-                    <Button Grid.Column="3"
-                            Command="{Binding ElmaCommand}">
+                    <Button Grid.Column="3" Grid.Row="2"
+                            Command="{Binding ElmaCommand}"
+                            Visibility="{Binding MostraEsterno}">
                         <Button.Template>
                             <ControlTemplate>
                                 <Image Source="ms-appx:///Assets/Squirrel-Elma.jpg"/>
@@ -74,7 +91,7 @@
                         </Button.Template>
                     </Button>
 
-                    <Button Grid.Column="5"
+                    <Button Grid.Column="5" Grid.Row="2"
                             Command="{Binding ConfigurazioneCommand}">
                         <Button.Template>
                             <ControlTemplate>
