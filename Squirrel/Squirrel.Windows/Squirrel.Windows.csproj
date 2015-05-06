@@ -175,9 +175,9 @@
       <Project>{2ada4a2f-bc48-4cca-9509-b063c5e1867b}</Project>
       <Name>Squirrel.Config</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Squirrel.Protocls.ZWave\Squirrel.Protocls.ZWave.csproj">
+    <ProjectReference Include="..\..\Squirrel.Protocols.ZWave\Squirrel.Protocols.ZWave.csproj">
       <Project>{896a6816-5b04-4fd4-a648-5d219a7625e2}</Project>
-      <Name>Squirrel.Protocls.ZWave</Name>
+      <Name>Squirrel.Protocols.ZWave</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Squirrel.Protocols\Squirrel.Protocols.csproj">
       <Project>{4da5317a-2f49-45c0-8a02-6f65b263daff}</Project>

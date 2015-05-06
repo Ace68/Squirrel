@@ -8,8 +8,8 @@
     <ProjectGuid>{896A6816-5B04-4FD4-A648-5D219A7625E2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Squirrel.Protocls.ZWave</RootNamespace>
-    <AssemblyName>Squirrel.Protocls.ZWave</AssemblyName>
+    <RootNamespace>Squirrel.Protocols.ZWave</RootNamespace>
+    <AssemblyName>Squirrel.Protocols.ZWave</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>

@@ -127,7 +127,9 @@ namespace Squirrel
         private void RootFrame_FirstNavigated(object sender, NavigationEventArgs e)
         {
             var rootFrame = sender as Frame;
-            rootFrame.ContentTransitions = this._transitions ?? new TransitionCollection() { new NavigationThemeTransition() };
+            if (rootFrame == null) return;
+
+            rootFrame.ContentTransitions = this._transitions ?? new TransitionCollection { new NavigationThemeTransition() };
             rootFrame.Navigated -= this.RootFrame_FirstNavigated;
         }
 #endif

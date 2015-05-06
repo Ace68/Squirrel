@@ -4,7 +4,7 @@ using GalaSoft.MvvmLight.Views;
 using Microsoft.Practices.ServiceLocation;
 using Squirrel.Config.Abstracts;
 using Squirrel.Config.Concretes;
-using Squirrel.Protocls.ZWave;
+using Squirrel.Protocols.ZWave;
 using Squirrel.Protocols;
 using Squirrel.Services.Abstracts;
 using Squirrel.Services.Concretes;

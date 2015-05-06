@@ -3,9 +3,7 @@ using System.Net;
 
 using Windows.Storage;
 
-using Squirrel.Protocols;
-
-namespace Squirrel.Protocls.ZWave
+namespace Squirrel.Protocols.ZWave
 {
     public class CommandHandler : CommandHandlerBase
     {
