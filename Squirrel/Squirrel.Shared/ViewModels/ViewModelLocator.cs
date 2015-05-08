@@ -18,14 +18,9 @@ namespace Squirrel.ViewModels
             get { return ServiceLocator.Current.GetInstance<MainViewModel>(); }
         }
 
-        public CameraViewModel CameraViewModel
+        public RoomsViewModel RoomsViewModel
         {
-            get { return ServiceLocator.Current.GetInstance<CameraViewModel>(); }
-        }
-
-        public ElmaViewModel ElmaViewModel
-        {
-            get { return ServiceLocator.Current.GetInstance<ElmaViewModel>(); }
+            get { return ServiceLocator.Current.GetInstance<RoomsViewModel>(); }
         }
 
         public ConfigurationViewModel ConfigurationViewModel
@@ -51,8 +46,7 @@ namespace Squirrel.ViewModels
             SimpleIoc.Default.Register<IAlertMessageService, AlertMessageService>();
 
             SimpleIoc.Default.Register<MainViewModel>();
-            SimpleIoc.Default.Register<CameraViewModel>();
-            SimpleIoc.Default.Register<ElmaViewModel>();
+            SimpleIoc.Default.Register<RoomsViewModel>();
             SimpleIoc.Default.Register<ConfigurationViewModel>();
             
             //SimpleIoc.Default.Register<INavigationService, NavigationService>();

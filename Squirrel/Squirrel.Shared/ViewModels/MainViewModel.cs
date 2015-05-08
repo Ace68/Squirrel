@@ -1,4 +1,5 @@
 ﻿using Windows.UI.Xaml;
+
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Views;
@@ -26,7 +27,7 @@ namespace Squirrel.ViewModels
             this.ElmaCommand = new RelayCommand(this.OnElmaCommand, CanNavigateOnElmaTools);
             this.ConfigurazioneCommand = new RelayCommand(this.OnConfigurazioneCommand, CanNavigateOnConfigurazioneTools);
 
-            this.ChkDevicesForRoomsVisibility();
+            this.ChkDevicesForRoomVisibility();
         }
 
         #region Public Properties
@@ -79,7 +80,7 @@ namespace Squirrel.ViewModels
         /// Se ad una stanza sono assegnati Devices => Visible
         /// Altrimenti => Collapsed
         /// </summary>
-        private void ChkDevicesForRoomsVisibility()
+        private void ChkDevicesForRoomVisibility()
         {
             this._mostraIngresso = Visibility.Collapsed;
             this._mostraSoggiorno = Visibility.Collapsed;

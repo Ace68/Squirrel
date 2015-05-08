@@ -5,11 +5,11 @@
     <MinimumVisualStudioVersion>12.0</MinimumVisualStudioVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F3C28AEC-0AAB-46A4-B7C6-4411735CCB12}</ProjectGuid>
+    <ProjectGuid>{668C3E0B-5676-452E-B552-60179B59058A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Squirrel.Domain</RootNamespace>
-    <AssemblyName>Squirrel.Domain</AssemblyName>
+    <RootNamespace>Squirrel.UserControls</RootNamespace>
+    <AssemblyName>Squirrel.UserControls</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -34,27 +34,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <!-- A reference to the entire .NET Framework is automatically included -->
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <TargetPlatform Include="WindowsPhoneApp, Version=8.1" />
     <TargetPlatform Include="Windows, Version=8.1" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abstracts\EntityBase.cs" />
-    <Compile Include="Abstracts\IEntityBase.cs" />
-    <Compile Include="Entities\Device.cs" />
-    <Compile Include="Entities\Room.cs" />
+    <Compile Include="Config\SquirrelConfigClient.xaml.cs">
+      <DependentUpon>SquirrelConfigClient.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\ISquirrelRepository.cs" />
-    <Compile Include="Repositories\ISquirrelUnitofWork.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Squirrel.Domain.Resources\Squirrel.Domain.Resources.csproj">
-      <Project>{4525fdbe-086e-44b1-8756-2013f9bbaf16}</Project>
-      <Name>Squirrel.Domain.Resources</Name>
-    </ProjectReference>
+    <Page Include="Config\SquirrelConfigClient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

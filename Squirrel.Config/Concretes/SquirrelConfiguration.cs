@@ -127,6 +127,11 @@ namespace Squirrel.Config.Concretes
 
             if (!this._squirrelSetting.Containers[SquirrelContainerName].Values.ContainsKey("LuceStudio"))
                 this._squirrelSetting.Containers[SquirrelContainerName].Values["LuceStudio"] = "5,0";
+
+            if (!this._squirrelSetting.Containers[SquirrelContainerName].Values.ContainsKey("Rooms"))
+            {
+                
+            }
         }
 
         private void ChkAndCreateContainer()
@@ -158,6 +163,11 @@ namespace Squirrel.Config.Concretes
             {
                 return null;
             }
+        }
+
+        private void CreateRoomsJson()
+        {
+            
         }
         #endregion
     }
