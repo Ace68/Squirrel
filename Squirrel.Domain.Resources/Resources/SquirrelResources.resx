@@ -117,19 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="DeviceIstanceNullException" xml:space="preserve">
-    <value>DeviceIstance Deve essere maggiore o uguale a 0!</value>
+  <data name="BathRoom" xml:space="preserve">
+    <value>Bagno</value>
   </data>
-  <data name="DeviceNameNullExceptin" xml:space="preserve">
-    <value>DeviceName Obbligatorio!</value>
+  <data name="BedRoomName" xml:space="preserve">
+    <value>Camera</value>
   </data>
-  <data name="DeviceNumberNullException" xml:space="preserve">
-    <value>DeviceNumber Deve essere maggiore di 0!</value>
+  <data name="Garden" xml:space="preserve">
+    <value>Giardino</value>
   </data>
-  <data name="RoomNameNullException" xml:space="preserve">
-    <value>RoomName Obbligatorio!</value>
+  <data name="HallName" xml:space="preserve">
+    <value>Ingresso</value>
   </data>
-  <data name="RoomsListNullException" xml:space="preserve">
-    <value>E' Obbligatorio un elenco valido delle stanze da Salvare!</value>
+  <data name="KitchenName" xml:space="preserve">
+    <value>Cucina</value>
+  </data>
+  <data name="LivingRoomName" xml:space="preserve">
+    <value>Soggiorno</value>
+  </data>
+  <data name="OfficeName" xml:space="preserve">
+    <value>Studio</value>
+  </data>
+  <data name="SquirrelContainerName" xml:space="preserve">
+    <value>SquirrelContainer</value>
   </data>
 </root>

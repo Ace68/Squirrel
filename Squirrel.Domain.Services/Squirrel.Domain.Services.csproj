@@ -35,18 +35,32 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->
-    <Folder Include="Abstracts\" />
-    <Folder Include="Concretes\" />
   </ItemGroup>
   <ItemGroup>
     <TargetPlatform Include="WindowsPhoneApp, Version=8.1" />
     <TargetPlatform Include="Windows, Version=8.1" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstracts\IRoomService.cs" />
+    <Compile Include="Concretes\RoomService.cs" />
     <Compile Include="Dtos\DtoBase.cs" />
     <Compile Include="Dtos\DtoDevice.cs" />
     <Compile Include="Dtos\DtoRoom.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Squirrel.Domain.Resources\Squirrel.Domain.Resources.csproj">
+      <Project>{4525fdbe-086e-44b1-8756-2013f9bbaf16}</Project>
+      <Name>Squirrel.Domain.Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Squirrel.Domain\Squirrel.Domain.csproj">
+      <Project>{f3c28aec-0aab-46a4-b7c6-4411735ccb12}</Project>
+      <Name>Squirrel.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Squirrel.Persistence\Squirrel.Persistence.csproj">
+      <Project>{43fa8ee7-f628-4332-8be3-4cef9aa99629}</Project>
+      <Name>Squirrel.Persistence</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Linq.Expressions;
 
@@ -9,6 +10,8 @@ namespace Squirrel.Domain.Repositories
 {
     public interface ISquirrelRepository<TEntity> where TEntity : EntityBase
     {
+        ObservableCollection<TEntity> EntityCollection { get; }
+
         void Insert(TEntity entityToAdd);
         void Update(TEntity entityToUpdate);
         void Delete(Guid id);

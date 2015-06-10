@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Reflection;
 using Squirrel.Config.Abstracts;
 using Squirrel.Config.Dtos;
 using Squirrel.Protocols;

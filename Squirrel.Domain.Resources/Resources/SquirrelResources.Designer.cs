@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Squirrel.Domain.Resources.Exceptions {
+namespace Squirrel.Domain.Resources.Resources {
     using System;
     using System.Reflection;
     
@@ -23,14 +23,14 @@ namespace Squirrel.Domain.Resources.Exceptions {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class DomainException {
+    public class SquirrelResources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal DomainException() {
+        internal SquirrelResources() {
         }
         
         /// <summary>
@@ -40,7 +40,7 @@ namespace Squirrel.Domain.Resources.Exceptions {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Squirrel.Domain.Resources.Exceptions.DomainException", typeof(DomainException).GetTypeInfo().Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Squirrel.Domain.Resources.Resources.SquirrelResources", typeof(SquirrelResources).GetTypeInfo().Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -62,47 +62,74 @@ namespace Squirrel.Domain.Resources.Exceptions {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DeviceIstance Deve essere maggiore o uguale a 0!.
+        ///   Looks up a localized string similar to Bagno.
         /// </summary>
-        public static string DeviceIstanceNullException {
+        public static string BathRoom {
             get {
-                return ResourceManager.GetString("DeviceIstanceNullException", resourceCulture);
+                return ResourceManager.GetString("BathRoom", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DeviceName Obbligatorio!.
+        ///   Looks up a localized string similar to Camera.
         /// </summary>
-        public static string DeviceNameNullExceptin {
+        public static string BedRoomName {
             get {
-                return ResourceManager.GetString("DeviceNameNullExceptin", resourceCulture);
+                return ResourceManager.GetString("BedRoomName", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DeviceNumber Deve essere maggiore di 0!.
+        ///   Looks up a localized string similar to Giardino.
         /// </summary>
-        public static string DeviceNumberNullException {
+        public static string Garden {
             get {
-                return ResourceManager.GetString("DeviceNumberNullException", resourceCulture);
+                return ResourceManager.GetString("Garden", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to RoomName Obbligatorio!.
+        ///   Looks up a localized string similar to Ingresso.
         /// </summary>
-        public static string RoomNameNullException {
+        public static string HallName {
             get {
-                return ResourceManager.GetString("RoomNameNullException", resourceCulture);
+                return ResourceManager.GetString("HallName", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to E&apos; Obbligatorio un elenco valido delle stanze da Salvare!.
+        ///   Looks up a localized string similar to Cucina.
         /// </summary>
-        public static string RoomsListNullException {
+        public static string KitchenName {
             get {
-                return ResourceManager.GetString("RoomsListNullException", resourceCulture);
+                return ResourceManager.GetString("KitchenName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Soggiorno.
+        /// </summary>
+        public static string LivingRoomName {
+            get {
+                return ResourceManager.GetString("LivingRoomName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Studio.
+        /// </summary>
+        public static string OfficeName {
+            get {
+                return ResourceManager.GetString("OfficeName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SquirrelContainer.
+        /// </summary>
+        public static string SquirrelContainerName {
+            get {
+                return ResourceManager.GetString("SquirrelContainerName", resourceCulture);
             }
         }
     }

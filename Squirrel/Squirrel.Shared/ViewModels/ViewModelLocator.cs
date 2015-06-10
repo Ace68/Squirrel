@@ -4,6 +4,10 @@ using GalaSoft.MvvmLight.Views;
 using Microsoft.Practices.ServiceLocation;
 using Squirrel.Config.Abstracts;
 using Squirrel.Config.Concretes;
+using Squirrel.Domain.Repositories;
+using Squirrel.Domain.Services.Abstracts;
+using Squirrel.Domain.Services.Concretes;
+using Squirrel.Persistence.Repositories;
 using Squirrel.Protocols.ZWave;
 using Squirrel.Protocols;
 using Squirrel.Services.Abstracts;
@@ -39,6 +43,11 @@ namespace Squirrel.ViewModels
             //container.RegisterType<ISquirrelServices, SquirrelServices>(new HierarchicalLifetimeManager());
 
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
+
+            SimpleIoc.Default.Register<IDeviceRepository, DeviceRepository>();
+            SimpleIoc.Default.Register<IRoomRepository, RoomRepository>();
+            SimpleIoc.Default.Register<ISquirrelUnitofWork, SquirrelUnitOfWork>();
+            SimpleIoc.Default.Register<IRoomService, RoomService>();
 
             SimpleIoc.Default.Register<ISquirrelServices, SquirrelServices>();
             SimpleIoc.Default.Register<ICommandHandler, CommandHandler>();

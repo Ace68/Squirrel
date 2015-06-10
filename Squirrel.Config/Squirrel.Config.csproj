@@ -50,6 +50,10 @@
       <Project>{7f58c611-d862-4e67-b238-fea9c07e2367}</Project>
       <Name>Squirrel.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Squirrel.Domain.Resources\Squirrel.Domain.Resources.csproj">
+      <Project>{4525fdbe-086e-44b1-8756-2013f9bbaf16}</Project>
+      <Name>Squirrel.Domain.Resources</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Squirrel.Domain.Services\Squirrel.Domain.Services.csproj">
       <Project>{fb3dad39-98bb-4956-be4e-4fc2e83c6154}</Project>
       <Name>Squirrel.Domain.Services</Name>

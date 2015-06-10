@@ -44,5 +44,10 @@ namespace Squirrel.Domain.Abstracts
         {
             return (!(entity1 == entity2));
         }
+
+        //public override string ToString()
+        //{
+        //    return this.ToString();
+        //}
     }
 }

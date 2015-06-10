@@ -175,6 +175,18 @@
       <Project>{2ada4a2f-bc48-4cca-9509-b063c5e1867b}</Project>
       <Name>Squirrel.Config</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Squirrel.Domain.Services\Squirrel.Domain.Services.csproj">
+      <Project>{fb3dad39-98bb-4956-be4e-4fc2e83c6154}</Project>
+      <Name>Squirrel.Domain.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Squirrel.Domain\Squirrel.Domain.csproj">
+      <Project>{f3c28aec-0aab-46a4-b7c6-4411735ccb12}</Project>
+      <Name>Squirrel.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Squirrel.Persistence\Squirrel.Persistence.csproj">
+      <Project>{43fa8ee7-f628-4332-8be3-4cef9aa99629}</Project>
+      <Name>Squirrel.Persistence</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Squirrel.Protocols.ZWave\Squirrel.Protocols.ZWave.csproj">
       <Project>{896a6816-5b04-4fd4-a648-5d219a7625e2}</Project>
       <Name>Squirrel.Protocols.ZWave</Name>

@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using Windows.UI.Popups;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Views;
 

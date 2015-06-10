@@ -6,19 +6,27 @@ using Windows.Storage;
 using Squirrel.Config.Abstracts;
 using Squirrel.Config.Dtos;
 using Squirrel.Config.Events;
+using Squirrel.Domain.Resources.Resources;
+using Squirrel.Domain.Services.Abstracts;
+using Squirrel.Domain.Services.Dtos;
 
 namespace Squirrel.Config.Concretes
 {
     public class SquirrelConfiguration : ISquirrelConfiguration
     {
-        private const string SquirrelContainerName = "SquirrelContainer";
         private ApplicationDataContainer _squirrelSetting;
-        private List<SquirrelDevice> _squirrelDevices; 
+        private List<SquirrelDevice> _squirrelDevices;
+
+        private List<DtoRoom> _rooms;
+
+        private readonly IRoomService _roomService;
 
         public event EventHandler<SquirrelConfigurationSavedEventArgs> SquirrelConfigurationSaved;
 
-        public SquirrelConfiguration()
+        public SquirrelConfiguration(IRoomService roomService)
         {
+            this._roomService = roomService;
+
             this.CreateLocalSetting();
         }
 
@@ -26,7 +34,7 @@ namespace Squirrel.Config.Concretes
         {
             try
             {
-                return this._squirrelSetting.Containers[SquirrelContainerName].Values["ZWaveServerAddress"].ToString();
+                return this._squirrelSetting.Containers[SquirrelResources.SquirrelContainerName].Values["ZWaveServerAddress"].ToString();
             }
             catch
             {
@@ -40,7 +48,7 @@ namespace Squirrel.Config.Concretes
             {
                 return
                     int.Parse(
-                        this._squirrelSetting.Containers[SquirrelContainerName].Values["ElmaTimer"].ToString());
+                        this._squirrelSetting.Containers[SquirrelResources.SquirrelContainerName].Values["ElmaTimer"].ToString());
             }
             catch
             {
@@ -50,6 +58,8 @@ namespace Squirrel.Config.Concretes
 
         public IList<SquirrelDevice> GetSquirrelDevice()
         {
+            this._rooms = this._roomService.GetRoomsFromRepository();
+
             if (this._squirrelDevices != null) return this._squirrelDevices;
 
             this._squirrelDevices = new List<SquirrelDevice>
@@ -81,18 +91,20 @@ namespace Squirrel.Config.Concretes
 
         public void SaveSquirrelConfiguration()
         {
+            this._roomService.SaveRoomsIntoRepository(this._rooms);
+
             if (this._squirrelDevices == null) return;
 
             this.ChkAndCreateContainer();
 
             foreach (var device in this._squirrelDevices)
             {
-                if (!this._squirrelSetting.Containers[SquirrelContainerName].Values.ContainsKey(device.DeviceName))
-                    this._squirrelSetting.Containers[SquirrelContainerName].Values[device.DeviceName] =
+                if (!this._squirrelSetting.Containers[SquirrelResources.SquirrelContainerName].Values.ContainsKey(device.DeviceName))
+                    this._squirrelSetting.Containers[SquirrelResources.SquirrelContainerName].Values[device.DeviceName] =
                         string.Format("{0},{1}", device.DeviceNumber, device.DeviceIstance);
                 else
                 {
-                    this._squirrelSetting.Containers[SquirrelContainerName].Values[device.DeviceName] =
+                    this._squirrelSetting.Containers[SquirrelResources.SquirrelContainerName].Values[device.DeviceName] =
                         string.Format("{0},{1}", device.DeviceNumber, device.DeviceIstance);
                 }
             }
@@ -103,32 +115,32 @@ namespace Squirrel.Config.Concretes
         {
             this.ChkAndCreateContainer();
 
-            if (!this._squirrelSetting.Containers[SquirrelContainerName].Values.ContainsKey("ZWaveServerAddress"))
-                this._squirrelSetting.Containers[SquirrelContainerName].Values["ZWaveServerAddress"] =
+            if (!this._squirrelSetting.Containers[SquirrelResources.SquirrelContainerName].Values.ContainsKey("ZWaveServerAddress"))
+                this._squirrelSetting.Containers[SquirrelResources.SquirrelContainerName].Values["ZWaveServerAddress"] =
                     "http://192.168.99.1:8083/ZWaveAPI/Run/";
 
-            if (!this._squirrelSetting.Containers[SquirrelContainerName].Values.ContainsKey("ElmaTimer"))
-                this._squirrelSetting.Containers[SquirrelContainerName].Values["ElmaTimer"] = "30";
+            if (!this._squirrelSetting.Containers[SquirrelResources.SquirrelContainerName].Values.ContainsKey("ElmaTimer"))
+                this._squirrelSetting.Containers[SquirrelResources.SquirrelContainerName].Values["ElmaTimer"] = "30";
 
-            if (!this._squirrelSetting.Containers[SquirrelContainerName].Values.ContainsKey("Radio"))
-                this._squirrelSetting.Containers[SquirrelContainerName].Values["Radio"] = "2,0";
+            if (!this._squirrelSetting.Containers[SquirrelResources.SquirrelContainerName].Values.ContainsKey("Radio"))
+                this._squirrelSetting.Containers[SquirrelResources.SquirrelContainerName].Values["Radio"] = "2,0";
 
-            if (!this._squirrelSetting.Containers[SquirrelContainerName].Values.ContainsKey("LuceCamera"))
-                this._squirrelSetting.Containers[SquirrelContainerName].Values["LuceCamera"] = "3,0";
+            if (!this._squirrelSetting.Containers[SquirrelResources.SquirrelContainerName].Values.ContainsKey("LuceCamera"))
+                this._squirrelSetting.Containers[SquirrelResources.SquirrelContainerName].Values["LuceCamera"] = "3,0";
 
-            if (!this._squirrelSetting.Containers[SquirrelContainerName].Values.ContainsKey("ElmaUp"))
-                this._squirrelSetting.Containers[SquirrelContainerName].Values["ElmaUp"] = "4,1";
+            if (!this._squirrelSetting.Containers[SquirrelResources.SquirrelContainerName].Values.ContainsKey("ElmaUp"))
+                this._squirrelSetting.Containers[SquirrelResources.SquirrelContainerName].Values["ElmaUp"] = "4,1";
 
-            if (!this._squirrelSetting.Containers[SquirrelContainerName].Values.ContainsKey("ElmaDown"))
-                this._squirrelSetting.Containers[SquirrelContainerName].Values["ElmaDown"] = "4,2";
+            if (!this._squirrelSetting.Containers[SquirrelResources.SquirrelContainerName].Values.ContainsKey("ElmaDown"))
+                this._squirrelSetting.Containers[SquirrelResources.SquirrelContainerName].Values["ElmaDown"] = "4,2";
 
-            if (!this._squirrelSetting.Containers[SquirrelContainerName].Values.ContainsKey("ElmaStop"))
-                this._squirrelSetting.Containers[SquirrelContainerName].Values["ElmaStop"] = "4,1";
+            if (!this._squirrelSetting.Containers[SquirrelResources.SquirrelContainerName].Values.ContainsKey("ElmaStop"))
+                this._squirrelSetting.Containers[SquirrelResources.SquirrelContainerName].Values["ElmaStop"] = "4,1";
 
-            if (!this._squirrelSetting.Containers[SquirrelContainerName].Values.ContainsKey("LuceStudio"))
-                this._squirrelSetting.Containers[SquirrelContainerName].Values["LuceStudio"] = "5,0";
+            if (!this._squirrelSetting.Containers[SquirrelResources.SquirrelContainerName].Values.ContainsKey("LuceStudio"))
+                this._squirrelSetting.Containers[SquirrelResources.SquirrelContainerName].Values["LuceStudio"] = "5,0";
 
-            if (!this._squirrelSetting.Containers[SquirrelContainerName].Values.ContainsKey("Rooms"))
+            if (!this._squirrelSetting.Containers[SquirrelResources.SquirrelContainerName].Values.ContainsKey("Rooms"))
             {
                 
             }
@@ -138,9 +150,9 @@ namespace Squirrel.Config.Concretes
         {
             this._squirrelSetting = ApplicationData.Current.LocalSettings;
 
-            if (!this._squirrelSetting.Containers.ContainsKey(SquirrelContainerName))
+            if (!this._squirrelSetting.Containers.ContainsKey(SquirrelResources.SquirrelContainerName))
             {
-                this._squirrelSetting.CreateContainer(SquirrelContainerName, ApplicationDataCreateDisposition.Always);
+                this._squirrelSetting.CreateContainer(SquirrelResources.SquirrelContainerName, ApplicationDataCreateDisposition.Always);
             }
         }
 
@@ -148,7 +160,7 @@ namespace Squirrel.Config.Concretes
         {
             try
             {
-                var deviceParameters = this._squirrelSetting.Containers[SquirrelContainerName].Values[deviceName].ToString();
+                var deviceParameters = this._squirrelSetting.Containers[SquirrelResources.SquirrelContainerName].Values[deviceName].ToString();
                 var arrayParameters = deviceParameters.Split(',');
 
                 return new SquirrelDevice
@@ -163,11 +175,6 @@ namespace Squirrel.Config.Concretes
             {
                 return null;
             }
-        }
-
-        private void CreateRoomsJson()
-        {
-            
         }
         #endregion
     }

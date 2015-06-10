@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Squirrel.Domain.Resources.Exceptions {
+namespace Squirrel.Domain.Resources.Resources {
     using System;
     using System.Reflection;
     
@@ -23,7 +23,7 @@ namespace Squirrel.Domain.Resources.Exceptions {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class DomainException {
+    internal class DomainException {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -37,10 +37,10 @@ namespace Squirrel.Domain.Resources.Exceptions {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Resources.ResourceManager ResourceManager {
+        internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Squirrel.Domain.Resources.Exceptions.DomainException", typeof(DomainException).GetTypeInfo().Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Squirrel.Domain.Resources.Resources.DomainException", typeof(DomainException).GetTypeInfo().Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -52,7 +52,7 @@ namespace Squirrel.Domain.Resources.Exceptions {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Globalization.CultureInfo Culture {
+        internal static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -64,25 +64,16 @@ namespace Squirrel.Domain.Resources.Exceptions {
         /// <summary>
         ///   Looks up a localized string similar to DeviceIstance Deve essere maggiore o uguale a 0!.
         /// </summary>
-        public static string DeviceIstanceNullException {
+        internal static string DeviceIstanceNullException {
             get {
                 return ResourceManager.GetString("DeviceIstanceNullException", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DeviceName Obbligatorio!.
-        /// </summary>
-        public static string DeviceNameNullExceptin {
-            get {
-                return ResourceManager.GetString("DeviceNameNullExceptin", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to DeviceNumber Deve essere maggiore di 0!.
         /// </summary>
-        public static string DeviceNumberNullException {
+        internal static string DeviceNumberNullException {
             get {
                 return ResourceManager.GetString("DeviceNumberNullException", resourceCulture);
             }
@@ -91,7 +82,7 @@ namespace Squirrel.Domain.Resources.Exceptions {
         /// <summary>
         ///   Looks up a localized string similar to RoomName Obbligatorio!.
         /// </summary>
-        public static string RoomNameNullException {
+        internal static string RoomNameNullException {
             get {
                 return ResourceManager.GetString("RoomNameNullException", resourceCulture);
             }
@@ -100,7 +91,7 @@ namespace Squirrel.Domain.Resources.Exceptions {
         /// <summary>
         ///   Looks up a localized string similar to E&apos; Obbligatorio un elenco valido delle stanze da Salvare!.
         /// </summary>
-        public static string RoomsListNullException {
+        internal static string RoomsListNullException {
             get {
                 return ResourceManager.GetString("RoomsListNullException", resourceCulture);
             }
